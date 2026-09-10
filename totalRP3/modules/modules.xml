@@ -186,4 +186,6 @@
 	<Include file="databroker\databroker.xml" />
 
 	<Include file="map\map.xml" />
+
+	<Include file="who_integration\who_integration.xml" />
 </Ui>
