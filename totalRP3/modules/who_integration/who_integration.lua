@@ -22,14 +22,14 @@ end
 local function onStart()
     hooksecurefunc("UnitPopup_OnClick", function(self)
         local dropdownMenu = _G["UIDROPDOWNMENU_INIT_MENU"]
-        local unit = dropdownMenu.unit or "target"
-        local name, _ = UnitName(unit)
-        local playerName, _ = UnitName("player")
 
         if self.value == token then
             local name = dropdownMenu.name
+            TRP3_API.utils.message.displayMessage("|cffffff00Requesting profile. Please wait...|r")
 
-            if name == playerName then
+            -- Handle opening the player's own profile.
+
+            if name == TRP3_API.globals.player_id then
                 local profile = TRP3_API.profile.getPlayerCurrentProfile()
 
                 TRP3_API.navigation.page.setPage("player_main", {
@@ -41,6 +41,8 @@ local function onStart()
                 TRP3_API.navigation.openMainFrame()
                 return
             end
+
+            -- Handle opening another player's profile.
 
             TRP3_API.r.sendQuery(name);
 
