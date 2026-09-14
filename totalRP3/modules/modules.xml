@@ -187,5 +187,5 @@
 
 	<Include file="map\map.xml" />
 
-	<Include file="who_integration\who_integration.xml" />
+	<Include file="unit_popup_integration\unit_popup_integration.xml" />
 </Ui>

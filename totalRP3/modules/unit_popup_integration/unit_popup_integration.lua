@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------
--- Total RP 3 - Unit Popup Module
+-- Total RP 3 - Unit Popup Integration Module
 -- Copyright 2026 Xal-Zul (www.xal-zul.co.za)
 ----------------------------------------------------------------------------------
 -- This module integrates the profile opening-functionality into the unit frames and the right-click context menus for players,
@@ -82,10 +82,10 @@ local function onStart()
 end
 
 local MODULE_STRUCTURE = {
-	["name"] = "Who Context Menu",
+	["name"] = "Unit Popup Integration",
 	["description"] = "Adds integration with right-click menus on unit frames and player names in chat frames.",
 	["version"] = 1.000,
-	["id"] = "trp3_who_integration",
+	["id"] = "trp3_unit_popup_integration",
     ["onInit"] = onInit,
     ["onStart"] = onStart,
 	["minVersion"] = 1,

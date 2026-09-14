@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
 
 <!--
-	Total RP 3 - Unit Popup Module
+	Total RP 3 - Unit Popup Integration Module
 	Copyright 2026 Xal-Zul (www.xal-zul.co.za)
 
 	Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +19,6 @@
 	limitations under the License.
 -->
 	
-	<Script file="who_integration.lua"/>
+	<Script file="unit_popup_integration.lua"/>
 	
 </Ui>
