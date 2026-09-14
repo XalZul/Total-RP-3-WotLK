@@ -1,13 +1,26 @@
 ----------------------------------------------------------------------------------
--- Total RP 3
--- WHO Frame integration
---	---------------------------------------------------------------------------
+-- Total RP 3 - Unit Popup Module
+-- Copyright 2026 Xal-Zul (www.xal-zul.co.za)
+----------------------------------------------------------------------------------
+-- This module integrates the profile opening-functionality into the unit frames and the right-click context menus for players,
+-- Allowing one to view a profile in the /who player list (and other places), without having to first "meet" the player.
 
-TRP3_API.who = TRP3_API.who or {};
+--	Licensed under the Apache License, Version 2.0 (the "License");
+--	you may not use this file except in compliance with the License.
+--	You may obtain a copy of the License at
+--
+--		http://www.apache.org/licenses/LICENSE-2.0
+--
+--	Unless required by applicable law or agreed to in writing, software
+--	distributed under the License is distributed on an "AS IS" BASIS,
+--	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+--	See the License for the specific language governing permissions and
+--	limitations under the License.
+----------------------------------------------------------------------------------
+
 local token = "VIEW_TRP_PROFILE"
 
 local function onInit()
-
     UnitPopupButtons[token] =
     {
         text = "|cff00ff00View TRP Profile|r",
@@ -25,6 +38,7 @@ local function onStart()
 
         if self.value == token then
             local name = dropdownMenu.name
+
             TRP3_API.utils.message.displayMessage("|cffffff00Requesting profile. Please wait...|r")
 
             -- Handle opening the player's own profile.
@@ -37,8 +51,8 @@ local function onStart()
                     isPlayer = true
                 })
 
-                TRP3_API.register.openPageByUnitID(TRP3_API.globals.player_id)
                 TRP3_API.navigation.openMainFrame()
+                TRP3_API.register.openPageByUnitID(TRP3_API.globals.player_id)
                 return
             end
 
@@ -46,6 +60,7 @@ local function onStart()
 
             TRP3_API.r.sendQuery(name);
 
+            -- Wait for 1 second to give the profile time to be received, before opening the profile page.
             C_Timer.After(1, function()
                 local profile = TRP3_API.register.getCharacterList()[name]
 
@@ -69,7 +84,7 @@ end
 
 local MODULE_STRUCTURE = {
 	["name"] = "Who Context Menu",
-	["description"] = "Adds the ability to see people's profiles in the who menu.",
+	["description"] = "Adds integration with right-click menus on unit frames and player names in chat frames.",
 	["version"] = 1.000,
 	["id"] = "trp3_who_integration",
     ["onInit"] = onInit,
