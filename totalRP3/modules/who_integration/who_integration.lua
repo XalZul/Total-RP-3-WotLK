@@ -81,7 +81,6 @@ local function onStart()
     end)
 end
 
-
 local MODULE_STRUCTURE = {
 	["name"] = "Who Context Menu",
 	["description"] = "Adds integration with right-click menus on unit frames and player names in chat frames.",
@@ -90,6 +89,6 @@ local MODULE_STRUCTURE = {
     ["onInit"] = onInit,
     ["onStart"] = onStart,
 	["minVersion"] = 1,
-};
+}
 
-TRP3_API.module.registerModule(MODULE_STRUCTURE);
+TRP3_API.module.registerModule(MODULE_STRUCTURE)
